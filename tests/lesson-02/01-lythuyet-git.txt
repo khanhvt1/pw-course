@@ -1,0 +1,29 @@
+giải thích các câu lệnh: git init, git add <file_name>, git add ., git
+commit -m “message”.
+
+====
+1. git init là: khởi tạo git
+2. git add <file_name>
+trong đó:
+- git là gọi tool git ra
+- add là thêm tệp tin vào vùng staging
+- file_name là tên file thay đổi hoặc thêm...
+ví dụ: git add . => nghĩa là add tất cả
+git add 01-lythuyet-git.txt => nghĩa là add file này vào vùng staging.
+
+----
+git add . được hiểu là add tất cả các file changed, added, delete ... vào vùng staging
+----
+git commit -m “message” có nghĩa là: 
+commit các changed vào vùng repository
+- git gọi tool git ra
+- commit : xac dịnh commit các changed vào vùng repository
+- -m : ký hiệu của message
+- "message": là nội dung comment thay đổi gì thường sẽ có dạng <type >: <short_description>
+trong đó type có 3 dạng:
+**chore:** sửa nhỏ lẻ, chính tả, xoá file không dùng tới.
+
+**feat:** new features, thêm file...
+
+**fix:** sửa code, sửa lỗi,....
+short_description: mô tả ngắn thay đổi <= 50 ký tự thì sẽ hợp lý

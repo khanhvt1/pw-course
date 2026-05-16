@@ -1,0 +1,19 @@
+Đề bài:
+a. Tạo 3 file: file1, file2, file3
+b. Chạy lệnh: git init
+c. Chạy lệnh: git commit -m”init project”
+d. Chạy lệnh: git add file1
+e. Chạy lệnh: git commit -m”add file1”
+f. Chạy lệnh: git commit -m”add file”
+==============================================================
+Trả lời:
+a.Tạo 3 file: file1, file2, file3 => 3 file này đều ở vùng local ( trên máy tính của tôi)
+b. Chạy lệnh: git init => 3 file: file1, file2, file3 này ở vùng working directory.
+c. Chạy lệnh: git commit -m”init project” => Hiển thị lỗi vì chưa được "GIT add"
+d. Chạy lệnh: git add file1 => file1 ở vùng Staging area, file2, file3 vẫn ở vùng working directory
+e. Chạy lệnh: git commit -m”add file1” => file1 ở vùng Repository, file2, file3 vẫn ở vùng working directory
+f. Chạy lệnh: git commit -m”add file” => file1 ở vẫn ở vùng Repository, file2, file3 vẫn ở vùng working directory
+
+trả lời thêm mục f:
+git sẽ trả về thông báo:"nothing to commit, working tree clean" vì
+Git từ chối tạo commit mới vì không có bất kỳ thay đổi nào trong khu vực chờ (Staging Area). Tất cả thay đổi của file1 đã được gom hết vào commit tại bước làm của e rồi.
