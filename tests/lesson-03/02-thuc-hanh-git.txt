@@ -1,0 +1,83 @@
+# Bai tap 2
+
+**Giả sử có 1 folder mới được tạo: demo**
+
+- Step 1: User vào máy tính create 1 folder có tên là: demo
+- Step 2: Sau đó mở folder "demo" bằng VSCode\
+  Step 2.1. Tạo 3 file: file1, file2, file3\
+  bằng cách: Mở Terminal nhập: touch file1, file2, file3 =&gt; KẾT QUẢ: tạo được 3 file: file1, file2, file3. + Lúc này trên local (máy tính của tôi) có 3 file: file1, file2, file3 nằm trong demo folder.
+- Working directory: không có file nào
+- Staging: không có file nào
+- Repository: không có file nào.\
+  ====\
+  b: Chạy lệnh: git init // khởi tạo
+- Local: không có file nào
+- Working directory: file1, file2, file3
+- Staging: không có file nào
+- Repository: không có file nào.
+
+c. Chạy lệnh: git commit -m”init project” //lỗi không có gì để commit vì chưa git add từ working directory =&gt; staging.
+
+- Local: không có file nào
+- Working directory: file1, file2, file3
+- Staging: không có file nào
+- Repository: không có file nào.\
+  \
+  d. Chạy lệnh: git add file1 // add file1 từ working directory =&gt; staging
+- Local: không có file nào
+- Working directory: file2, file3
+- Staging: file1
+- Repository: không có file nào.\
+  \
+  e. Chạy lệnh: git commit -m”add file”// commit all các file ở staging hiện có =&gt; repository với comment add file.
+- Local: không có file nào
+- Working directory: file2, file3
+- Staging: không có file nào.
+- Repository:  file1\
+  \
+  f. Chạy lệnh: git add . // add tất cả các file từ working directory =&gt; staging\
+  \
+  Local: không có file nào
+- Working directory: không có file nào.
+- Staging:  file2, file3
+- Repository: file1\
+  \
+  g. Chạy lệnh: git restore --staged file2 // restore file2 từ staging =&gt; working directory
+- Local: không có file nào
+- Working directory: file2
+- Staging: file3
+- Repository: file1\
+  \
+  h. Chạy lệnh: git commit -m”add all files” // commit all file từ staging =&gt; repository với comment add all files
+- Local: không còn file nào
+- Working directory: file2
+- Staging: không còn file nào.
+- Repository: file1, file3\
+  \
+  i. Chạy lệnh: git reset HEAD\~1 //repet code gần nhất từ Repository =&gt; working directory\
+  Local: không còn file nào
+- Working directory: file2, file3
+- Staging: không còn file nào.
+- Repository: file1
+
+| working directory | staging | repository |
+| --- | --- | --- |
+| git init | git add . | git commit --m"comment" |
+| staging =&gt; working: git restore | REPO =&gt; working directory: git reset HEAD\~1 | repo ve staging: git reset --soft HEAD\~1 |
+
+## Lệnh 1: lấy từ Staging -&gt; working directory
+
+`git restore --staged <file_name1> <file_name2>`
+
+`git restore --staged .`
+
+## Lệnh 2: lấy từ repository về working directory:
+
+- Mất commit + lấy các thay đổi về lại vùng *working directory*
+- mỗi commit sẽ được sắp xếp theo thứ tự ghế xếp lên nhau. commit nào gần nhất thì ở trên. Nếu muốn lấy commit nào thì sẽ dùng câu lệnh tương ứng
+
+`git reset HEAD~1` //1 là lấy commit 1 if change = 2 =&gt; lấy commit 2.
+
+## lệnh 3: lấy từ respository về staging
+
+`git reset --soft HEAD~1`

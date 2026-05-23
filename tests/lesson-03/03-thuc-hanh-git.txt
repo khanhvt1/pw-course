@@ -1,0 +1,39 @@
+# Bai tap 2
+
+**Giả sử có 1 folder mới được tạo: demo**
+
+- Step 1: User vào máy tính create 1 folder có tên là: demo
+- Step 2: Sau đó mở folder "demo" bằng VSCode\
+  \
+  **a. Chạy lệnh git init**
+- Local (máy tính của tôi): demo
+- Working directory: Trống
+- Staging: Trống
+- Repository: Trống\
+  \
+  **b. Tạo file file1.txt, file2.txt, oops/file3.txt.**\
+  STạo 3 file: file1.txt, file2.txt, oops/file3.txt\
+  bằng cách: Mở Terminal nhập: touch file1.txt, file2.txt, oops/file3.txt =&gt; KẾT QUẢ: tạo được 3 file: file1.txt, file2.txt, oops/file3.txt
+- Working directory: file1.txt, file2.txt, oops/file3.txt
+- Staging: Trống
+- Repository: Trống\
+  ====\
+  **c. Thêm file .gitignore, thêm vào 2 dòng:**
+
+  **i. file1.txt**
+
+  **ii. oops/**
+- Working directory: file1.txt, file2.txt, oops/file3.txt, **.gitignore**
+- Staging: trống
+- Repository: trống\
+  \
+  **d. Chạy lệnh: git add .**
+- Working directory: file1.txt, file2.txt, oops/file3.txt, .gitignore
+- Staging: file2.txt, .gitignore
+- Repository: trống
+
+**e. Chạy lệnh: git commit -m"init project"**
+
+- Working directory: file1.txt, file2.txt, oops/file3.txt, .gitignore
+- Staging: trống
+- Repository: file2.txt, .gitignore

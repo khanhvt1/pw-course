@@ -1,0 +1,52 @@
+# Git
+
+Giải thích các câu lệnh:
+
+`git commit --amend`
+
+Lệnh `git commit --amend` được dùng để **chỉnh sửa hoặc ghi đè lên commit gần đây nhất**.
+
+Thay vì tạo một commit mới, lệnh này cho phép bạn gộp thêm các thay đổi mới vào commit cuối hoặc sửa lại thông điệp (message) của commit đó.
+
+Các công dụng phổ biến của lệnh này bao gồm:
+
+- **Sửa thông điệp commit:** Nếu bạn viết sai chính tả hoặc muốn thay đổi nội dung tin nhắn của commit vừa thực hiện.
+- **Thêm file quên commit:** Nếu bạn đã commit nhưng chợt nhớ ra mình quên thêm (add) một vài file hoặc quên lưu thay đổi.
+
+**Cách sử dụng cơ bản:**
+
+1. **Sửa lỗi và thêm file:** Dùng git add &lt;tên_file&gt; để thêm các thay đổi mới vào vùng chờ (staging area).
+2. **Chạy lệnh sửa đổi:** Gõ `git commit --amend`.
+3. **Lưu lại:** Trình soạn thảo (như Vim, Nano) sẽ hiện lên để bạn chỉnh sửa thông điệp commit. Hãy lưu lại và thoát để hoàn tất.
+
+**Cảnh báo quan trọng:**
+
+`git commit --amend` sẽ thay thế hoàn toàn commit cũ bằng một commit mới.
+
+Chỉ sử dụng lệnh này đối với những commit **chưa được đẩy (push) lên server** (như GitHub, GitLab). Việc sửa đổi các commit đã được đẩy sẽ gây xung đột cho lịch sử làm việc của các thành viên khác trong nhóm.
+
+`git commit --amend -m "<message>"`
+
+dùng để **==thay đổi nội dung tin nhắn (commit message) của commit gần đây nhất==**. Thay vì tạo ra một bản commit mới làm rối lịch sử, lệnh này sẽ ghi đè và thay thế trực tiếp lên bản commit cuối cùng đó.
+
+| working directory | staging | repository |
+| --- | --- | --- |
+| git init | git add . | git commit --m"comment" |
+| lấy file từ staging =&gt; working directory: `git restore --staged <file>` | REPO =&gt; working directory: git reset HEAD\~1 | repo =&gt; staging: git reset --soft HEAD\~1 |
+
+## Lệnh 1: lấy từ Staging -&gt; working directory
+
+`git restore --staged <file_name1> <file_name2>`
+
+`git restore --staged .`
+
+## Lệnh 2: lấy từ repository về working directory:
+
+- Mất commit + lấy các thay đổi về lại vùng *working directory*
+- mỗi commit sẽ được sắp xếp theo thứ tự ghế xếp lên nhau. commit nào gần nhất thì ở trên. Nếu muốn lấy commit nào thì sẽ dùng câu lệnh tương ứng
+
+`git reset HEAD~1` //1 là lấy commit 1 if change = 2 =&gt; lấy commit 2.
+
+## lệnh 3: lấy từ respository về staging
+
+`git reset --soft HEAD~1`
